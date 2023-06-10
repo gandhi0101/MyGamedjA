@@ -1,1 +1,21 @@
-<p>game works!</p>
+ <div class="Game">
+    <div class="Game-header">
+        <h1 class="Game-title">{{game?.name}}</h1>
+    </div>
+    <div class="Game-content" >
+        
+        <div class="Game-intro" *ngIf="!bPlay">
+            <b>
+                {{game?.description}}
+            </b>
+        </div>
+        <button class="play-button" *ngIf="!bPlay"
+            [routerLink]="['/game',game?.name, { outlets: { ecenasOutlet: 'ecenasGame' } }]" routerLinkActive="active" (click)="play()">Play</button>
+        <!--<div *ngIf="bPlay">
+             *ngIf="bPlay"
+
+             
+        </div>-->
+        <router-outlet name="ecenasOutlet"></router-outlet>
+    </div>
+</div>
