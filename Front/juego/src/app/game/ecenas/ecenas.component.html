@@ -1,11 +1,72 @@
-<h1>holaa
+<div class="game tictact">
 
-</h1>
-<pre>
-    asda
-    sd
-    as
-    da
-    sd
-    asassaaaaaaaaaaaafasd
-</pre>
+    <div class="row">
+        <a id="01" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)"><div>
+                <!-- x or o -->
+                {{tablero[0]}}
+            </div>
+        </a>
+        <a id="02" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[1]}}
+            </div>
+        </a>
+        <a id="03" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[2]}}
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <a id="04" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[3]}}
+            </div>
+        </a>
+        <a id="05" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[4]}}
+            </div>
+        </a>
+        <a id="06" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[5]}}
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <a id="07" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[6]}}
+            </div>
+        </a>
+        <a id="08" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[7]}}
+            </div>
+        </a>
+        <a id="09" class="casillas"
+            (click)="jugador? jugador1($event) : jugador2($event)">
+            <div>
+                <!-- x or o -->
+                {{tablero[8]}}
+            </div>
+        </a>
+
+    </div>
+</div>

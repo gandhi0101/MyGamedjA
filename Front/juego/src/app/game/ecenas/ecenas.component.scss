@@ -1,5 +1,29 @@
-.contenido{
-    background-color: black;
-    color: white;
+.tictact {
+
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+
+    .casillas {
+        border: 2px solid black;
+        height: 150px;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        div {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 
 }
