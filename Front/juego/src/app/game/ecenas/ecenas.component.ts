@@ -30,82 +30,85 @@ export class EcenasComponent implements OnInit {
     this.renderer.setStyle(componentElement, 'color', 'white');
   }*/
   jugador1(event: any): void {
-
-    let casilla = event.target.id;
-    if (this.tablero[casilla - 1] !== 'O') {
-      switch (casilla) {
-        case '01':
-          this.tablero[0] = 'X';
-          break;
-        case '02':
-          this.tablero[1] = 'X';
-          break;
-        case '03':
-          this.tablero[2] = 'X';
-          break;
-
-        case '04':
-          this.tablero[3] = 'X';
-          break;
-        case '05':
-          this.tablero[4] = 'X';
-          break;
-        case '06':
-          this.tablero[5] = 'X';
-          break;
-
-        case '07':
-          this.tablero[6] = 'X';
-          break;
-        case '08':
-          this.tablero[7] = 'X';
-          break;
-        case '09':
-          this.tablero[8] = 'X';
-          break;
-
-      }
+    const casilla = event.target.id;
+    if (this.tablero[casilla - 1] !== 'O' && this.tablero[casilla - 1] !== 'X' && !this.ganador('X')) {
+      this.llenarTablero(casilla, 'X');
       this.jugador = false;
+      console.log('jugador 1');
     }
-
   }
+
   jugador2(event: any): void {
-    let casilla = event.target.id;
-    console.log(casilla)
-    if (this.tablero[casilla - 1] !== 'X') {
-      switch (casilla) {
-        case '01':
-          this.tablero[0] = 'O';
-          break;
-        case '02':
-          this.tablero[1] = 'O';
-          break;
-        case '03':
-          this.tablero[2] = 'O';
-          break;
-
-        case '04':
-          this.tablero[3] = 'O';
-          break;
-        case '05':
-          this.tablero[4] = 'O';
-          break;
-        case '06':
-          this.tablero[5] = 'O';
-          break;
-        case '07':
-          this.tablero[6] = 'O';
-          break;
-        case '08':
-          this.tablero[7] = 'O';
-          break;
-        case '09':
-          this.tablero[8] = 'O';
-          break;
-
-      }
+    const casilla = event.target.id;
+    if (this.tablero[casilla - 1] !== 'X' && this.tablero[casilla - 1] !== 'O' && !this.ganador('X')) {
+      this.llenarTablero(casilla, 'O');
       this.jugador = true;
+      console.log('jugador 2');
     }
+  }
+
+  llenarTablero(casilla: string, jugador: 'X' | 'O'): void {
+    const indice = parseInt(casilla) - 1;
+    this.tablero[indice] = jugador;
+    //console.log(this.ganador(jugador)? ''+this.ganador(jugador) : '');
+  }
+  ganador(jugador: 'X' | 'O'): boolean{
+
+    if (this.tablero[0] == jugador && this.tablero[1] == jugador && this.tablero[2] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+
+      return true;
+    }
+    if (this.tablero[3] == jugador && this.tablero[4] == jugador && this.tablero[5] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+      return true;
+      
+    }
+    if (this.tablero[6] == jugador && this.tablero[7] == jugador && this.tablero[8] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+      return true;
+
+    }
+
+
+
+    if (this.tablero[0] == jugador && this.tablero[3] == jugador && this.tablero[6] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+      return true;
+
+    }
+    if (this.tablero[1] == jugador && this.tablero[4] == jugador && this.tablero[7] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+      return true;
+
+    }
+    if (this.tablero[2] == jugador && this.tablero[5] == jugador && this.tablero[8] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+      return true;
+
+    }
+
+
+
+    if (this.tablero[0] == jugador && this.tablero[4] == jugador && this.tablero[8] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+      return true;
+
+    }
+    if (this.tablero[2] == jugador && this.tablero[4] == jugador && this.tablero[6] == jugador) {
+      //alert("Ganador ");
+      //console.log(`ganaste`);
+      return true;
+
+    }
+    return false;
   }
 
 
