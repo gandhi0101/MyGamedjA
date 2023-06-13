@@ -54,60 +54,22 @@ export class EcenasComponent implements OnInit {
   }
   ganador(jugador: 'X' | 'O'): boolean{
 
-    if (this.tablero[0] == jugador && this.tablero[1] == jugador && this.tablero[2] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-
-      return true;
+    const combinacionesGanadoras = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Combinaciones horizontales
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Combinaciones verticales
+      [0, 4, 8], [2, 4, 6]             // Combinaciones diagonales
+    ];
+  
+    for (const combinacion of combinacionesGanadoras) { //recorremos el array combinacionesGanadoras
+      if (//validamos cada una de las combinaciones por la posicion del sub array 
+        this.tablero[combinacion[0]] === jugador &&
+        this.tablero[combinacion[1]] === jugador &&
+        this.tablero[combinacion[2]] === jugador
+      ) {
+        return true;
+      }
     }
-    if (this.tablero[3] == jugador && this.tablero[4] == jugador && this.tablero[5] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-      return true;
-      
-    }
-    if (this.tablero[6] == jugador && this.tablero[7] == jugador && this.tablero[8] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-      return true;
-
-    }
-
-
-
-    if (this.tablero[0] == jugador && this.tablero[3] == jugador && this.tablero[6] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-      return true;
-
-    }
-    if (this.tablero[1] == jugador && this.tablero[4] == jugador && this.tablero[7] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-      return true;
-
-    }
-    if (this.tablero[2] == jugador && this.tablero[5] == jugador && this.tablero[8] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-      return true;
-
-    }
-
-
-
-    if (this.tablero[0] == jugador && this.tablero[4] == jugador && this.tablero[8] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-      return true;
-
-    }
-    if (this.tablero[2] == jugador && this.tablero[4] == jugador && this.tablero[6] == jugador) {
-      //alert("Ganador ");
-      //console.log(`ganaste`);
-      return true;
-
-    }
+  
     return false;
   }
 
